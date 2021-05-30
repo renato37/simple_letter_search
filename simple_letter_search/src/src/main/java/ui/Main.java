@@ -6,12 +6,13 @@ import java.util.Scanner;
 
 public class Main {
     private static final String TO_IGNORE = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-
+    private static final String KEY = "LOGIC";
     public static void main(String[] args) {
 	// write your code here
         Scanner myObj = new Scanner(System.in);
         String input = myObj.nextLine();
-        String key = "LOGIC";
+        String key = KEY;
+        //String key = myObj.nextLine(); za unos s tipkovnice
         compute(input, key);
     }
 
