@@ -1,12 +1,12 @@
 package src.main.java.ui;
 
 import java.util.ArrayList;
-public class Words_collection {
+public class WordsCollection {
     private ArrayList<Word> wordsList;
     private int sum_all_letters;
     private int sum_key_letters;
 
-    public Words_collection() {
+    public WordsCollection() {
         this.wordsList = new ArrayList<>();
     }
 
