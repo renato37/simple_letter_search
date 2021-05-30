@@ -5,20 +5,20 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
+    private static final String TO_IGNORE = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
     public static void main(String[] args) {
 	// write your code here
-        Scanner myObj = new Scanner(System.in);//input from keyboard
+        Scanner myObj = new Scanner(System.in);
         String input = myObj.nextLine();
-        String key = "LOGIC";//changeable to any string
+        String key = "LOGIC";
         compute(input, key);
     }
 
     private static void compute(String input, String key) {
         key = key.toLowerCase(Locale.ROOT);
         input = input.toLowerCase(Locale.ROOT);
-        String to_ignore = " !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
-        Words_collection words_collection = count(key, input, to_ignore);
+        WordsCollection words_collection = countLettersInWord(key, input);
         words_collection.getArrayList().sort((word1,word2)->compare(word1, word2));
         ArrayList<String> all_outputs = new ArrayList<>();
         for(Word word : words_collection.getArrayList()){
@@ -61,14 +61,14 @@ public class Main {
         }
     }
 
-    private static Words_collection count(String key, String input, String to_ignore) {
-        Words_collection words_collection = new Words_collection();
+    private static WordsCollection countLettersInWord(String key, String input) {
+        WordsCollection words_collection = new WordsCollection();
         int sum_all_letters = 0;
         int sum_key_letters = 0;
         for(String inputs : input.split(" ")){
             Word word = new Word();
             for(String letter : inputs.split("")){
-                if(!to_ignore.contains(letter)) {
+                if(!TO_IGNORE.contains(letter)) {
                     sum_all_letters++;
                     word.addLetterSum();
                     if (key.contains(letter)) {
